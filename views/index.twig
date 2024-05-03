@@ -1,0 +1,94 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 style="text-align: center" class="card-title">ToDo</h5>
+                        <a href="/create">
+                            <img src="images/add.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                {% for task in t0 %}
+                    <p>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ task.nom }}</h5>
+                            <p class="card-text">{{ task.description }}</p>
+                            <a style="text-decoration: none" href="http://localhost:3000/edit/?id={{ task._id }}">
+                                <button class="btn btn-primary">Edit</button>
+                            </a>
+                            <a href="http://localhost:3000/stateToDoing?id={{ task.id }}"
+                               style="text-decoration: none;">
+                                <img src="images/validate.png">
+                            </a>
+                            <a href="http://localhost:3000/delete?id={{ task.id }}">
+                                <img src="images/cancel.png">
+                            </a>
+                        </div>
+                    </div>
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 style="text-align: center" class="card-title">Doing</h5>
+                        <a href="/create">
+                            <img src="images/add.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                {% for task in t1 %}
+                    <p>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ task.nom }}</h5>
+                            <p class="card-text">{{ task.description }}</p>
+                            <a style="text-decoration: none" href="http://localhost:3000/edit/?id={{ task._id }}">
+                                <button class="btn btn-primary">Edit</button>
+                            </a>
+                            <a href="http://localhost:3000/stateToDo?id={{ task.id }}"
+                               style="text-decoration: none;">
+                                <img src="images/validate.png" alt="">
+                            </a>
+                            <a href="http://localhost:3000/delete?id={{ task.id }}">
+                                <img src="images/cancel.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 style="text-align: center" class="card-title">Do</h5>
+                        <a href="/create">
+                            <img src="images/add.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                {% for task in t2 %}
+                    <p>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ task.nom }}</h5>
+                            <p class="card-text">{{ task.description }}</p>
+                            <a style="text-decoration: none" href="http://localhost:3000/edit/?id={{ task._id }}">
+                                <button class="btn btn-primary">Edit</button>
+                            </a>
+                            <a href="http://localhost:3000/delete?id={{ task.id }}">
+                                <img src="images/cancel.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    </p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

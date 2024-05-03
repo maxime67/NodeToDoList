@@ -1,0 +1,14 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<form method="post" action="/edit?id={{ task.id }}" class="form">
+    <div class="form-group">
+        <input type="text" name="nom" id="nom" value="{{ task.nom }}">
+        <input type="text" name="description" id="description" value="{{ task.description }}">
+
+        <button class="button btn-primary" type="submit">
+            Submit
+        </button>
+    </div>
+</form>
+{% endblock %}
